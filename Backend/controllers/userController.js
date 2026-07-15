@@ -140,7 +140,7 @@ const updateProfile = async (req, res) => {
     }
 };
 
-const Blog = require("../models/Blog");
+const Blog = require("../models/blog");
 
 const getAuthorProfile = async (req, res) => {
     try {
