@@ -49,6 +49,7 @@ function Login() {
     };
 
     return (
+
         <div className="min-h-screen bg-white flex items-center justify-center px-6">
 
             <div className="bg-white rounded-3xl border border-[#5C4033] shadow-2xl w-full max-w-md mb-20 p-10">
@@ -70,6 +71,7 @@ function Login() {
                 <p className="text-center text-gray-500 mt-4">
                     Login to continue your blogging journey.
                 </p>
+        
                 <form onSubmit={handleLogin}>
 
                     <label>Email</label>

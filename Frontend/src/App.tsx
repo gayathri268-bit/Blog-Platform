@@ -14,7 +14,9 @@ import AuthorPage from "./pages/AuthorPage";
 import Analytics from "./pages/Analytics";
 
 function App() {
+
   return(
+    
    <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>

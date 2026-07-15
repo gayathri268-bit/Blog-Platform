@@ -84,6 +84,7 @@ function CreateBlog() {
     };
 
     return (
+
         <div className="min-h-screen bg-[#F8F3ED] py-12 px-6">
 
             <div className="max-w-4xl mx-auto border-2 border-[#8B5E3C] bg-white rounded-3xl shadow-2xl p-10">
@@ -143,7 +144,6 @@ function CreateBlog() {
                         </select>
 
                     </div>
-
 
                     <div className="mb-6">
                         <label className="block text-[#3E2723] font-medium mb-2">
@@ -218,9 +218,7 @@ function CreateBlog() {
                             placeholder="React, AI, Travel..."
                             className="w-full border-2 border-[#8B5E3C] rounded-xl px-4 py-3 focus:outline-none focus:border-[#C69C6D] focus:ring-4 focus:ring-[#C69C6D]/30"
                         />
-
                     </div>
-
 
                     <div className="flex gap-4">
 

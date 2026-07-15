@@ -155,6 +155,7 @@ function Register() {
                             {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
                     </div>
+
                     <button
                         className="w-full bg-[#5C4033] hover:bg-[#4A3227] transition duration-300 text-white py-3 rounded-lg font-semibold shadow-md">
                         Register

@@ -108,11 +108,11 @@ const updateProfile = async (req, res) => {
             });
         }
 
-        
+
         user.name = req.body.name || user.name;
         user.bio = req.body.bio || user.bio;
-        
-        if(req.file) {
+
+        if (req.file) {
             user.profileImage = `uploads/$
             {req.file.filename}`;
             console.log(user.profileImage);

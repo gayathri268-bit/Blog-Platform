@@ -76,7 +76,7 @@ function EditBlog() {
             }
 
             console.log("sending FormData...");
-            for(const pair of data.entries()) {
+            for (const pair of data.entries()) {
                 console.log(pair[0], pair[1]);
             }
             await updateBlog(id!, data);
@@ -85,7 +85,7 @@ function EditBlog() {
 
             navigate(`/blog/${id}`);
         }
-            catch (error: any) {
+        catch (error: any) {
             console.log(error);
 
             console.log(error.response);
@@ -98,6 +98,7 @@ function EditBlog() {
     };
 
     return (
+
         <div className="min-h-screen bg-[#F8F3ED] py-12 px-6">
 
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-10">

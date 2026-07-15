@@ -22,6 +22,7 @@ function Home() {
     };
 
     return (
+        
         <div className="relative min-h-screen overflow-hidden bg-[#F8F3ED] bg-gradient-to-b from-[#FFF8F0] to-[#F3E2CF] rounded-3xl">
 
             <div className="absolute top-0 left-0 w-72 h-72 bg-[#FFD79A] opacity-20 blur-[120px] rounded-full"></div>
@@ -87,9 +88,9 @@ function Home() {
                         />
 
                     </div>
-
-
                 </section>
+
+
                 <section className="max-w-7xl mx-auto px-6 py-20">
                     <p className="uppercase tracking-[5px] text-[#8B6B52] font-semibold text-center">
                         Find your interest
@@ -124,38 +125,51 @@ function Home() {
                         </div>
 
                         <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+
                             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#F3E3D0] flex items-center justify-center text-4xl">✈️</div>
+
                             <h3 className="text-2xl font-semibold text-[#5C4033]">
                                 Travel
                             </h3>
+
                             <p className="text-gray-500 mt-3">
                                 Explore beautiful destinations around the world.
                             </p>
+
                         </div>
 
                         <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+
                             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#F3E3D0] flex items-center justify-center text-4xl">🍽️</div>
+
                             <h3 className="text-2xl font-semibold text-[#5C4033]">
                                 Food
                             </h3>
+
                             <p className="text-gray-500 mt-3">
                                 Recipes, restaurants and delicious stories.
                             </p>
+
                         </div>
 
                         <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+
                             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#F3E3D0] flex items-center justify-center text-4xl">💼</div>
+
                             <h3 className="text-2xl font-semibold text-[#5C4033]">
                                 Business
                             </h3>
+
                             <p className="text-gray-500 mt-3">
                                 Entrepreneurship, startups and success stories.
                             </p>
+
                         </div>
 
                     </div>
 
                 </section>
+
 
                 <section className="max-w-6xl mx-auto px-6 pt-32 pb-24">
 
@@ -204,7 +218,7 @@ function Home() {
                                 <p className="text-gray-600 mt-3">
 
                                     Artificial Intelligence (AI) has rapidly evolved from a futuristic concept into a technology that influences our everyday lives.
-                                    
+
                                 </p>
 
                                 <div className="mt-auto">
@@ -214,14 +228,14 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <Link
                                 to="/blogs"
                                 className="mt-auto p-5 text-[#6D1F2F] font-semibold hover:underline"
                             >
                                 Read More →
                             </Link>
-                        
+
                         </div>
 
                         <div className="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl hover:-translate-y-2 transition duration-300">
@@ -247,9 +261,12 @@ function Home() {
                                 </p>
 
                                 <div className="mt-auto">
+
                                     <div className="flex justify-between items-center mt-5 text-sm text-gray-500">
+
                                         <span>By Admin</span>
                                         <span>July 6, 2026</span>
+
                                     </div>
 
                                     <button className="mt-auto pt-6 text-[#6D1F2F] font-semibold hover:underline">
@@ -294,9 +311,10 @@ function Home() {
                                     </button>
                                 </div>
                             </div>
-
                         </div>
+
                         <div className="flex justify-center mt-14">
+
                             <Link
                                 to="/blogs"
                                 className="bg-[#5C4033] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#3E2723] transition duration-300 shadow-lg hover:shadow-xl"
@@ -304,8 +322,6 @@ function Home() {
                                 View All Blogs →
                             </Link>
                         </div>
-
-
                     </div>
                 </section>
 
@@ -421,7 +437,6 @@ function Home() {
 
                     </div>
 
-
                 </section>
 
                 <footer className="bg-[#3E2723] rounded-lg mt-20">
@@ -434,7 +449,6 @@ function Home() {
                                 <h3 className="text-3xl font-bold text-[#C69C6D]">
                                     ☕ Blog Platform
                                 </h3>
-                                3
 
                                 <p className="text-gray-300 mt-4 leading-7">
                                     Share your stories with the world through our elegant blog platform.
@@ -509,8 +523,6 @@ function Home() {
                             © 2026 Coffee Tales. All Rights Reserved.
 
                         </div>
-
-
 
                     </div>
 

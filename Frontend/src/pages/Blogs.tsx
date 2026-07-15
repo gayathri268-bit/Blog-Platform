@@ -45,24 +45,24 @@ function Blogs() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="
-      w-full
-      max-w-lg
-      px-5
-      py-3
-      rounded-full
-      border
-      border-[#C69C6D]
-      bg-white
-      text-[#3E2723]
-      placeholder:text-gray-400
-      shadow-md
-      focus:outline-none
-      focus:ring-2
-      focus:ring-[#C69C6D]
-      hover:shadow-xl
-      transition-all
-      duration-300
-    "
+          w-full
+          max-w-lg
+          px-5
+          py-3
+          rounded-full
+          border
+          border-[#C69C6D]
+          bg-white
+          text-[#3E2723]
+          placeholder:text-gray-400
+          shadow-md
+          focus:outline-none
+          focus:ring-2
+          focus:ring-[#C69C6D]
+          hover:shadow-xl
+          transition-all
+          duration-300
+         "
         />
 
         <h1 className="text-4xl font-bold text-[#3E2723] mt-8">
@@ -78,13 +78,16 @@ function Blogs() {
         </p>
 
       </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-20 items-center justify-center py-6 px-4 gap-5">
 
         {filteredBlogs.length > 0 ? (
           filteredBlogs.map((blog: any) => (
             <BlogCard key={blog._id} blog={blog} />
           ))
+
         ) : (
+          
           <div className="col-span-full text-center py-20">
             <h2 className="text-3xl font-bold text-[#6B4F3B]">
               No Stories Found ☕

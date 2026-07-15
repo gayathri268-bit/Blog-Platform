@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import ai from "../assets/ai.png";
 
 
-  interface BlogCardProps {
-    blog:any;
-  }
+interface BlogCardProps {
+  blog: any;
+}
 
 function BlogCard({ blog }: BlogCardProps) {
- 
+
   return (
-    
+
     <div className="max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
 
       <img
@@ -36,7 +36,7 @@ function BlogCard({ blog }: BlogCardProps) {
 
           <span>👤 {blog.author?.name}</span>
           <span>
-            📅 { new Date(blog.createdAt).toLocaleDateString() }
+            📅 {new Date(blog.createdAt).toLocaleDateString()}
           </span>
 
         </div>
@@ -59,8 +59,8 @@ function BlogCard({ blog }: BlogCardProps) {
 
           </Link>
 
-           </div>
-    </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -48,7 +48,7 @@ function BlogDetails() {
                 setBlog(data.blog);
                 console.log("Blog:", data.blog);
                 console.log("Image:", data.blog.image);
-                
+
                 const commentData = await getComments(id!);
                 setComments(commentData.comments);
             } catch (error) {

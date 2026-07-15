@@ -71,46 +71,46 @@ function Navbar() {
 
                 </div>
 
-            {user ? (
-              <div className="flex items-center ml-auto absolute right-8 gap-4">
-               <Link
-                  to="/profile"
-                  className="w-10 h-10 rounded-full bg-white text-[#8B5E3C] border border-[#3E2723] flex items-center justify-center font-bold text-lg hover:scale-105 transition"
-                >
-                   G
-              </Link>
+                {user ? (
+                    <div className="flex items-center ml-auto absolute right-8 gap-4">
+                        <Link
+                            to="/profile"
+                            className="w-10 h-10 rounded-full bg-white text-[#8B5E3C] border border-[#3E2723] flex items-center justify-center font-bold text-lg hover:scale-105 transition"
+                        >
+                            G
+                        </Link>
 
-              <button
-                onClick={handleLogout}
-                className="bg-[#8B5E3C] text-white px-4 py-2 rounded-lg hover:bg-[#6F472B] transition"
-            >
-              Logout
-              </button>
-           </div>
+                        <button
+                            onClick={handleLogout}
+                            className="bg-[#8B5E3C] text-white px-4 py-2 rounded-lg hover:bg-[#6F472B] transition"
+                        >
+                            Logout
+                        </button>
+                    </div>
 
-        ) : (     
-              <div className="flex gap-4">
+                ) : (
+                    <div className="flex gap-4">
 
-                            <Link
-                                to="/login"
-                                className="hover:text-[#F3E3CF]"
-                            >
-                                Login
-                            </Link>
+                        <Link
+                            to="/login"
+                            className="hover:text-[#F3E3CF]"
+                        >
+                            Login
+                        </Link>
 
-                            <Link
-                                to="/register"
-                                className="bg-[#F3E3CF] text-[#5C4033] px-5 rounded-lg font-semibold"
-                            >
-                                Register
-                            </Link>
+                        <Link
+                            to="/register"
+                            className="bg-[#F3E3CF] text-[#5C4033] px-5 rounded-lg font-semibold"
+                        >
+                            Register
+                        </Link>
 
-                        </div>
-                    )}
+                    </div>
+                )}
 
-                </div>
+            </div>
 
         </nav>
     );
 }
-    export default Navbar;
+export default Navbar;

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 
 function ForgotPassword() {
+
   return (
+
     <div className="min-h-screen bg-[#F8F3ED] flex items-center justify-center px-6">
 
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md p-10">

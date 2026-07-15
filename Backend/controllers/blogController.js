@@ -12,12 +12,12 @@ const createBlog = async (req, res) => {
 
         console.log(req.file);
         console.log(req.file?.originalname);
-        
+
         const blog = await Blog.create({
             title,
             category,
-            image: req.file 
-            ? `/uploads/${req.file.filename}` : "",
+            image: req.file
+                ? `/uploads/${req.file.filename}` : "",
             description,
             content,
             tags: tags ? tags.split(",").map(tag =>
@@ -122,9 +122,9 @@ const updateBlog = async (req, res) => {
         blog.title = title;
         blog.category = category;
 
-        if(req.file){
-        blog.image = `/uploads/${req.file.filename}`;
-    }
+        if (req.file) {
+            blog.image = `/uploads/${req.file.filename}`;
+        }
         blog.description = description;
         blog.content = content;
         blog.tags = tags;

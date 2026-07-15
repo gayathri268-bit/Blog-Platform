@@ -43,8 +43,11 @@ function AuthorPage() {
     if (!author) return <h1 className="text-center mt-10">Loading...</h1>;
 
     return (
+        
         <div className="max-w-6xl mx-auto p-8">
+            
             <div className="bg-white shadow rounded-xl p-6 mb-8">
+                
                 <h1 className="text-3xl font-bold">{author.name}</h1>
 
                 <p className="mt-3 text-gray-600">{author.bio}</p>
