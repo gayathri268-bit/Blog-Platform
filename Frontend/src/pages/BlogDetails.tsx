@@ -155,7 +155,7 @@ function BlogDetails() {
                 <img
                     src={
                         blog.image
-                            ? `http://localhost:5000${blog.image}`
+                            ? `https://blog-platform-backend-1npv.onrender.com${blog.image}`
                             : "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200"
                     }
                     alt={blog.title}

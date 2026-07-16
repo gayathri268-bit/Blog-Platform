@@ -95,7 +95,7 @@ export const editComment = async (id: string, text: string) => {
 };
 
 export const likeBlog = async (id: string) => {
-  const response = await fetch(`http://localhost:5000/api/blogs/${id}/like`, {
+  const response = await fetch(`https://blog-platform-backend-1npv.onrender.com/api/blogs/${id}/like`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

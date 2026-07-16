@@ -13,7 +13,7 @@ function BlogCard({ blog }: BlogCardProps) {
     <div className="max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
 
       <img
-        src={blog.image ? `http://localhost:5000${blog.image}` : ai}
+        src={blog.image ? `https://blog-platform-backend-1npv.onrender.com${blog.image}` : ai}
         alt={blog.title}
         className="w-full h-56 object-cover"
       />

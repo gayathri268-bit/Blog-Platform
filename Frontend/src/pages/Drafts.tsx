@@ -137,7 +137,7 @@ function Drafts() {
               >
                 {blog.image ? (
                   <img
-                    src={`http://localhost:5000${blog.image}`}
+                    src={`https://blog-platform-backend-1npv.onrender.com${blog.image}`}
                     alt={blog.title}
                     className="w-full h-56 object-cover rounded-xl mb-5"
                   />

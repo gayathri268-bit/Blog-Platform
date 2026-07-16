@@ -113,7 +113,7 @@ function Profile() {
                 >
                     {formData.profileImage !== "" && (
                         <img
-                            src={`http://localhost:5000/${formData
+                            src={`https://blog-platform-backend-1npv.onrender.com${formData
                                 .profileImage}`}
                             className="w-20 h-20 rounded-full object-cover mx-auto mb-6"
                         />
