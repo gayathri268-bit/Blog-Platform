@@ -127,7 +127,8 @@ const updateBlog = async (req, res) => {
         blog.description = description;
         blog.content = content;
         blog.tags = tags;
-        blog.status = status;
+        if (status) {
+        blog.status = status; }
 
         const updatedBlog = await blog.save();
 

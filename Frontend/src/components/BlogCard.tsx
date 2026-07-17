@@ -10,7 +10,7 @@ function BlogCard({ blog }: BlogCardProps) {
 
   return (
 
-    <div className="max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+    <div className="max-w-sm w-full h-full flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
 
       <img
         src={blog.image ? blog.image : ai}
@@ -18,17 +18,17 @@ function BlogCard({ blog }: BlogCardProps) {
         className="w-full h-56 object-cover"
       />
 
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-1">
 
-        <span className="bg-[#E8D1B8] text-[#5C4033] px-3 py-1 rounded-full text-sm font-semibold">
+        <span className="bg-[#E8D1B8] text-[#5C4033] px-3 py-1 rounded-full text-sm font-semibold w-fit">
           {blog.category}
         </span>
 
-        <h2 className="text-2xl font-bold text-[#3E2723] mt-4">
+        <h2 className="text-2xl font-bold text-[#3E2723] mt-4 line-clamp-2">
           {blog.title}
         </h2>
 
-        <p className="text-gray-600 mt-3">
+        <p className="text-gray-600 mt-3 line-clamp-3">
           {blog.description}
         </p>
 
@@ -41,7 +41,7 @@ function BlogCard({ blog }: BlogCardProps) {
 
         </div>
 
-        <div className="flex gap-3 mt-6">
+        <div className="flex gap-3 mt-auto pt-4">
 
           <Link
             to={`/blog/${blog._id}`}
