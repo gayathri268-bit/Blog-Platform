@@ -154,9 +154,9 @@ function BlogDetails() {
             <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
                 <img
                     src={
-                        blog.image
-                            ? `https://blog-platform-backend-1npv.onrender.com${blog.image}`
-                            : "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200"
+                      blog.image
+                          ? blog.image
+                          : "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200"
                     }
                     alt={blog.title}
                     className="w-full h-[600px] object-cover"
