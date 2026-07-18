@@ -14,7 +14,6 @@ interface Blog {
   views: number;
   likes: number;
 }
-
 function Analytics() {
 
   const [stats, setStats] = useState({
