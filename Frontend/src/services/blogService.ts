@@ -125,3 +125,23 @@ export const likeBlog = async (id: string) => {
   return await response.json();
 };
 
+export const subscribeCategory = async (category: string) => {
+  const token = localStorage.getItem("token");
+  const res = await api.post(
+    "/users/subscribe-category",
+    { category },
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return res.data;
+};
+
+export const unsubscribeCategory = async (category: string) => {
+  const token = localStorage.getItem("token");
+  const res = await api.post(
+    "/users/unsubscribe-category",
+    { category },
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return res.data;
+};
+

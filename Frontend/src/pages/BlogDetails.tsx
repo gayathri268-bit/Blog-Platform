@@ -22,6 +22,7 @@ import {
     LinkedinIcon,
     EmailIcon,
 } from "react-share";
+import { subscribeCategory, unsubscribeCategory } from "../services/blogService";
 
 
 function BlogDetails() {
@@ -38,6 +39,7 @@ function BlogDetails() {
     const shareUrl = window.location.href;
     const user = JSON.parse(localStorage.getItem("user") || "null");
     const isBlogAuthor = user && blog?.author?._id === user.id;
+    const [isSubscribed, setIsSubscribed] = useState(false);
 
 
     useEffect(() => {
@@ -143,6 +145,20 @@ function BlogDetails() {
         }
     };
 
+    const handleCategorySubscribe = async () => {
+        try {
+            if (isSubscribed) {
+                await unsubscribeCategory(blog.category);
+                setIsSubscribed(false);
+            } else {
+                await subscribeCategory(blog.category);
+                setIsSubscribed(true);
+            }
+        } catch (err) {
+            console.error("Category subscribe error:", err);
+        }
+    };
+
     const handleLike = async () => {
         try {
             const data = await likeBlog(blog._id);
@@ -184,6 +200,10 @@ function BlogDetails() {
                 <span className="bg-[#E8D1B8] text-[#5C4033] px-4 py-2 rounded-full text-sm font-semibold">
                     {blog.category}
                 </span>
+
+                <button onClick={handleCategorySubscribe} className="ml-2 px-3 py-1 rounded bg-purple-600 text-white text-sm">
+                    {isSubscribed ? "Unsubscribe Category" : "Subscribe to Category"}
+                </button>
 
                 <h1 className="text-5xl font-bold text-[#3E2723] mt-6">
                     {blog.title}
