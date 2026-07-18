@@ -8,6 +8,7 @@ import {
     editComment,
     deleteComment,
     likeBlog,
+    toggleSpamStatus,
 } from "../services/blogService";
 import {
     FacebookShareButton,
@@ -35,6 +36,8 @@ function BlogDetails() {
     const [editText, setEditText] = useState("");
     const [likes, setLikes] = useState(0);
     const shareUrl = window.location.href;
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+    const isBlogAuthor = user && blog?.author?._id === user.id;
 
 
     useEffect(() => {
@@ -127,6 +130,19 @@ function BlogDetails() {
         }
     };
 
+    const handleToggleSpam = async (id: string) => {
+        try {
+            await toggleSpamStatus(id);
+
+            const commentData = await getComments(blog._id);
+            setComments(commentData.comments);
+
+        } catch (error) {
+            console.log(error);
+            alert("Failed to update comment status");
+        }
+    };
+
     const handleLike = async () => {
         try {
             const data = await likeBlog(blog._id);
@@ -154,9 +170,9 @@ function BlogDetails() {
             <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
                 <img
                     src={
-                      blog.image
-                          ? blog.image
-                          : "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200"
+                        blog.image
+                            ? blog.image
+                            : "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200"
                     }
                     alt={blog.title}
                     className="w-full h-[600px] object-cover"
@@ -284,56 +300,77 @@ function BlogDetails() {
                     </button>
 
                     <div className="mt-8 space-y-4">
-                        {comments.map((comment) => (
-                            <div
-                                key={comment._id}
-                                className="bg-white p-4 rounded-lg shadow"
-                            >
-                                <p className="font-semibold">
-                                    {comment.user?.name}
-                                </p>
+                        {comments.map((comment) => {
+                            if (comment.isSpam && !isBlogAuthor) {
+                                return null;
+                            }
 
-                                {editingId === comment._id ? (
-                                    <>
-                                        <textarea
-                                            value={editText}
-                                            onChange={(e) => setEditText(e.target.value)}
-                                            className="w-full border rounded-lg p-2 mt-2"
-                                        />
+                            return (
+                                <div
+                                    key={comment._id}
+                                    className="bg-white p-4 rounded-lg shadow"
+                                >
+                                    <p className="font-semibold">
+                                        {comment.user?.name}
+                                    </p>
 
-                                        <button
-                                            onClick={() => handleEdit(comment._id)}
-                                            className="bg-green-600 text-white px-3 py-1 rounded mt-2"
-                                        >
-                                            Save
-                                        </button>
-                                    </>
-                                ) : (
-                                    <>
-                                        <p>{comment.text}</p>
+                                    {comment.isSpam && (
+                                        <p className="text-sm text-red-600 font-semibold mt-1">
+                                            ⚠️ Flagged as possible spam
+                                        </p>
+                                    )}
 
-                                        <div className="flex gap-3 mt-3">
-                                            <button
-                                                onClick={() => {
-                                                    setEditingId(comment._id);
-                                                    setEditText(comment.text);
-                                                }}
-                                                className="bg-yellow-500 text-white px-3 py-1 rounded"
-                                            >
-                                                Edit
-                                            </button>
+                                    {editingId === comment._id ? (
+                                        <>
+                                            <textarea
+                                                value={editText}
+                                                onChange={(e) => setEditText(e.target.value)}
+                                                className="w-full border rounded-lg p-2 mt-2"
+                                            />
 
                                             <button
-                                                onClick={() => handleDeleteComment(comment._id)}
-                                                className="bg-red-600 text-white px-3 py-1 rounded"
+                                                onClick={() => handleEdit(comment._id)}
+                                                className="bg-green-600 text-white px-3 py-1 rounded mt-2"
                                             >
-                                                Delete
+                                                Save
                                             </button>
-                                        </div>
-                                    </>
-                                )}
-                            </div>
-                        ))}
+                                        </>
+                                    ) : (
+                                        <>
+                                            <p>{comment.text}</p>
+
+                                            <div className="flex gap-3 mt-3">
+                                                <button
+                                                    onClick={() => {
+                                                        setEditingId(comment._id);
+                                                        setEditText(comment.text);
+                                                    }}
+                                                    className="bg-yellow-500 text-white px-3 py-1 rounded"
+                                                >
+                                                    Edit
+                                                </button>
+
+                                                <button
+                                                    onClick={() => handleDeleteComment(comment._id)}
+                                                    className="bg-red-600 text-white px-3 py-1 rounded"
+                                                >
+                                                    Delete
+                                                </button>
+
+                                                {isBlogAuthor && (
+                                                    <button
+                                                        onClick={() => handleToggleSpam(comment._id)}
+                                                        className="bg-gray-500 text-white px-3 py-1 rounded"
+                                                    >
+                                                        {comment.isSpam ? "Unmark Spam" : "Mark as Spam"}
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
 
                     <div className="mt-10">

@@ -110,7 +110,15 @@ function Analytics() {
 
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data}>
-                <XAxis dataKey="name" />
+                <XAxis
+                  dataKey="name"
+                  angle={-15}
+                  textAnchor="end"
+                  interval={0}
+                  height={70}
+                  tick={{ fontSize: 12 }}
+                  tickFormatter={(name) => name.length > 12 ? name.slice(0, 12) + "..." : name}
+                />
                 <YAxis />
                 <Tooltip />
                 <Bar

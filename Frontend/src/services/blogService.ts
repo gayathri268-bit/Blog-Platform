@@ -94,6 +94,22 @@ export const editComment = async (id: string, text: string) => {
   return res.data;
 };
 
+export const toggleSpamStatus = async (id: string) => {
+  const token = localStorage.getItem("token");
+
+  const res = await api.put(
+    `/comments/${id}/spam`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return res.data;
+};
+
 export const likeBlog = async (id: string) => {
   const response = await fetch(`https://blog-platform-backend-1npv.onrender.com/api/blogs/${id}/like`, {
     method: "PUT",
