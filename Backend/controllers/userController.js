@@ -191,6 +191,50 @@ const subscribeAuthor = async (req, res) => {
     }
 };
 
+const subscribeCategory = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        const category = req.params.category;
+
+        if (!user.subscribedCategories.includes(category)) {
+            user.subscribedCategories.push(category);
+            await user.save();
+        }
+
+        res.status(200).json({
+            message: "Subscribed to category successfully",
+            subscribedCategories: user.subscribedCategories,
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+};
+
+const unsubscribeCategory = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        const category = req.params.category;
+
+        user.subscribedCategories = user.subscribedCategories.filter(
+            (c) => c !== category
+        );
+        await user.save();
+
+        res.status(200).json({
+            message: "Unsubscribed from category successfully",
+            subscribedCategories: user.subscribedCategories,
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+};
+
 module.exports = {
     registerUser,
     loginUser,
@@ -198,4 +242,6 @@ module.exports = {
     updateProfile,
     getAuthorProfile,
     subscribeAuthor,
+    subscribeCategory,
+    unsubscribeCategory,
 };

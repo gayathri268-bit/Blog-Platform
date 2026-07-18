@@ -51,13 +51,19 @@ const userSchema = new mongoose.Schema(
       }
     },
 
-      subscriptions: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
-      ],
-    },
+    subscriptions: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+
+    subscribedCategories: [
+      {
+        type: String,
+      },
+    ],
+  },
   {
     timestamps: true,
   }

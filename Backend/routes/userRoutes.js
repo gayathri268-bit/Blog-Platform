@@ -8,6 +8,8 @@ const {
   updateProfile,
   getAuthorProfile,
   subscribeAuthor,
+  subscribeCategory,
+  unsubscribeCategory,
 } = require("../controllers/userController");
 
 const protect = require("../middleware/authMiddleware")
@@ -26,5 +28,7 @@ router.put(
 
 router.get("/author/:id", getAuthorProfile);
 router.post("/subscribe/:id", protect, subscribeAuthor);
+router.post("/subscribe-category", protect, subscribeCategory);
+router.post("/unsubscribe-category", protect, unsubscribeCategory);
 
 module.exports = router;
